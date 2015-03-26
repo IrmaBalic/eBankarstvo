@@ -1,0 +1,52 @@
+<h1>Listing incidents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Category</th>
+      <% if session[:user_id] %>
+        <th>Priority</th>
+      <% end %>
+      <th>Status</th>
+      <% if session[:user_id] %>
+        <th></th>
+        <th></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @incidents.each do |incident| %>
+      <tr>
+        <td><%= incident.name %></td>
+        <td><%= incident.description %></td>
+        <td><%= incident.category.name %></td>
+        <% if session[:user_id] %>
+          <% if incident.priority %>
+            <td><%= incident.priority.name %></td>
+          <% else %>
+            <td> - </td>
+          <% end %>
+        <% end %>
+        <td><%= incident.status %></td>
+        <% if session[:user_id] %>
+          <td><%= link_to 'Show incident', incident %></td>
+          <td><%= link_to 'Close incident', edit_incident_path(incident) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Incident history', incidents_path %><br>
+<a href="/incidents?status=Active">Active incidents</a><br>
+<%= link_to 'New Incident', new_incident_path %><br>
+<% if session[:user_id] %>
+<%= link_to 'Categories', categories_path %><br>
+   <%= button_to 'Logout', logout_path, method: :delete %>
+<% else %>
+   <%= link_to 'Login', login_path %><br>
+<% end %>

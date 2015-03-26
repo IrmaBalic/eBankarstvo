@@ -1,0 +1,43 @@
+<%= form_for(@incident) do |f| %>
+  <% if @incident.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+
+      <ul>
+      <% @incident.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+     <% if @edit %>
+       <h3>Known incident</h3>
+       <%= select_tag(:known_incident, options_for_select(Incident.dropdown_options, -1)) %><br><br>
+       <h3>New incident</h3>
+     <% end %>
+  </div>
+  <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= label :category_id, "Category" %><br>
+    <%= select_tag(:category, options_for_select(Category.dropdown_options, :selected => Category.selected(@category))) %>
+  </div>
+  <% if @edit %>
+    <div class="field">
+      <%= label :priority, "Priority" %><br>
+      <%= select_tag(:priority, options_for_select(Priority.dropdown_options, :selected => Priority.selected(@priority))) %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

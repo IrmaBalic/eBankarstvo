@@ -1,0 +1,31 @@
+<h1>Listing reported incidents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reported_incidents.each do |reported_incident| %>
+      <tr>
+        <td><%= reported_incident.name %></td>
+        <td><%= reported_incident.description %></td>
+        <td><%= reported_incident.category.name %></td>
+        <td><%= link_to 'Show', reported_incident %></td>
+        <td><%= link_to 'Edit', edit_reported_incident_path(reported_incident) %></td>
+        <td><%= link_to 'Destroy', reported_incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New incident', new_reported_incident_path %>
