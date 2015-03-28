@@ -1,24 +1,25 @@
 <p id="notice"><%= notice %></p>
-
+<div id="table_index">
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
-
+	
+		
 <p>
   <strong>Surname:</strong>
   <%= @user.surname %>
 </p>
-
+		
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-
+		
 <p>
   <strong>Password digest:</strong>
   <%= @user.password_digest %>
 </p>
-
+</div>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
