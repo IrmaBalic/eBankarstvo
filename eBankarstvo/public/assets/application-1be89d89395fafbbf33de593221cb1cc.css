@@ -1,0 +1,559 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#title {
+    color:  red;
+    font-size: 1.5em; 
+    font-weight: 400;
+   /* margin-left: 100px;*/
+   text-align: center;
+    margin-top: 40px;
+  }
+
+#header {
+		background-color: #413e4a;
+		}
+			.title-xs {
+		font-size: 1.13em; 
+		font-weight: 600;
+		line-height: 1.667;
+		text-align: justify;
+		color:  #7d7d7d;
+		margin-bottom: 20px;
+	}
+	#section_title {
+		text-align: left;
+		margin-top: 60px;
+		font-weight: 800;
+		font-size: 22px;
+		margin-left: auto;
+		margin-right: auto;
+		/*width: 430px*/;
+		float: none;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#register_link {
+		float: right;
+		text-align: right;
+		display: inline-block;
+		width: 117px;
+		a {
+			color:  #7ca3cc;
+			font-size: 15px; /* Approximation due to font substitution */
+			font-weight: 600;
+		}
+	}
+	.actions {
+		text-align: right;
+	}
+	 #input_form {
+      float: left;
+      /*width: 350px;*/
+      margin-left: 80px;
+      margin-top: 50px;
+     /* float: left;*/
+      .field {
+        margin-top: 15px;
+        label {
+        color:  red;
+        font-size: 1.13em; /* Approximation due to font substitution */
+        font-weight: 600;
+        /*width: 350px;*/
+        height: 13px;
+        }
+        input {
+        border-radius: 4px;
+        border-width: 1px;
+        border-color:  #b7b7b7;
+        border-style: solid;
+        width: 100%;
+        height: 35px;
+        padding: 5px;
+        }
+        input[type=checkbox] {
+          width: 20px;
+          height: 20px;
+        }
+        input[type=text] {
+          margin-top: 5px;
+        }
+        .actions {
+          margin-top: 20px;
+        }
+      }
+  }
+	#table_index {
+			padding: 20px;
+			margin-top: 40px;
+			border: 1px solid gray;
+			width: 400px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: red;
+	}
+	/*Purchuase history*/
+	#purchase_title {
+		color:  #545454;
+	    font-size: 1.5em; 
+	    font-weight: 400;
+	    margin-left: 100px;
+	    margin-top: 40px;
+	}
+	#cart_frame {
+		/*width: 1200px;*/
+		margin-left: 65px;
+		margin-top: 50px;
+		float: left;
+		min-height: 400px;
+		margin-bottom: 50px;
+	}
+	#cart_line_item {
+		border-bottom: 1px solid #b7b7b7;
+		/*width: 1200px;*/
+		margin: 0;
+		/*height: 220px;*/ 
+		float: left;
+		#slika {
+			padding-left: 5px;
+			padding-top: 5px;
+			/*width: 168px;*/
+			height: 136px;
+			float: left;
+			img {
+				/*width: 100%;*/
+				height: 100%;
+			}
+		}
+		#description {
+			padding-top: 5px;
+			font-size: 1.13em; /* Approximation due to font substitution */
+			font-weight: 600;
+			line-height: 1.667;
+			text-align: justify;
+			/*width: 450px;*/
+			/*height: 160px;*/
+			float: left;
+			color:  #7d7d7d;
+			margin-left: 20px;
+		}
+	}
+	.buy_button {
+		width: 120px;
+        height: 30px;
+	}
+ #price_details {
+ 	padding-top: 5px;
+    float: left;
+    padding-right: 40px;
+ /*   border-right: 1px solid #b7b7b7;;*/
+  }
+  @media (min-width: 768px) {
+  	#cart_line_item {
+  		height: 450px;
+  	}
+  	#price_details {
+  		height: 450px;
+  	}
+  }
+   @media (min-width: 992px) {
+
+  	#price_details {
+  		height: 240px;
+  	}
+  }
+ #order_details {
+ 	padding-top: 5px;
+  	margin-left: 20px;
+    float: left;
+    text-align: left;
+    padding-bottom: 10px;
+    /*width: 130px;*/
+	margin-left: 40px;
+  }
+  #label{
+  	float: left;
+    color:  #7d7d7d;
+    font-size: 0.88em;
+    font-weight: 600;
+    line-height: 2.143;
+  }
+  .value {
+  	width: 130px;
+  	float: left;
+    color:  #7d7d7d;
+    font-size: 1.13em; 
+    font-weight: 600;
+    line-height: 1.667;
+    margin-bottom: 10px;
+  }
+  table {
+  	margin-top: 20px;
+  }
+/* line 1, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+a {
+  color: #000;
+}
+/* line 23, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+a:visited {
+  color: #666;
+}
+/* line 26, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 33, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 38, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 42, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 48, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 55, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 65, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/* line 5, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/session.css.scss */
+.sesions #header {
+  background-color: #413e4a;
+}
+/* line 8, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/session.css.scss */
+.sesions .title-xs {
+  font-size: 1.13em;
+  /* Approximation due to font substitution */
+  font-weight: 600;
+  line-height: 1.667;
+  text-align: justify;
+  color: #7d7d7d;
+  margin-bottom: 20px;
+}
+/* line 16, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/session.css.scss */
+.sesions #section_title {
+  text-align: left;
+  margin-top: 60px;
+  font-weight: 800;
+  font-size: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 430px*/
+  float: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 28, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/session.css.scss */
+.sesions #table_index {
+  padding: 20px;
+  margin-top: 40px;
+  border: 1px solid gray;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 36, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/session.css.scss */
+.sesions #label {
+  float: left;
+  color: #7d7d7d;
+  font-size: 0.88em;
+  font-weight: 600;
+  line-height: 2.143;
+}
+/* line 43, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/session.css.scss */
+.sesions .value {
+  width: 130px;
+  float: left;
+  color: #7d7d7d;
+  font-size: 1.13em;
+  font-weight: 600;
+  line-height: 1.667;
+  margin-bottom: 10px;
+}
+/* line 52, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/session.css.scss */
+.sesions table {
+  margin-top: 20px;
+}
+/* line 4, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users {
+  /*Purchuase history*/
+}
+/* line 5, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #header {
+  background-color: #413e4a;
+}
+/* line 8, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users .title-xs {
+  font-size: 1.13em;
+  font-weight: 600;
+  line-height: 1.667;
+  text-align: justify;
+  color: #7d7d7d;
+  margin-bottom: 20px;
+}
+/* line 16, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #section_title {
+  text-align: left;
+  margin-top: 60px;
+  font-weight: 800;
+  font-size: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 430px*/
+  float: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 28, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #register_link {
+  float: right;
+  text-align: right;
+  display: inline-block;
+  width: 117px;
+}
+/* line 33, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #register_link a {
+  color: #7ca3cc;
+  font-size: 15px;
+  /* Approximation due to font substitution */
+  font-weight: 600;
+}
+/* line 39, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users .actions {
+  text-align: right;
+}
+/* line 42, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #input_form {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding: 50px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-color: #D4D6D9;
+  border-style: solid;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  background-color: #f9fafa;
+}
+/* line 55, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #input_form select {
+  margin-top: 5px;
+  border-width: 1px;
+  border-color: #b7b7b7;
+  border-style: solid;
+  padding: 5px;
+  width: 100%;
+  border-radius: 4px;
+  height: 30px;
+}
+/* line 65, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #input_form input[type="submit"] {
+  display: inline-block;
+  margin-top: 20px;
+  border-radius: 4px;
+  border-color: #566473;
+  background-color: #566473;
+  width: 137px;
+  height: 45px;
+  color: white;
+  font-size: 1.31em;
+  /* Approximation due to font substitution */
+  font-weight: 600;
+  border-style: solid;
+  cursor: pointer;
+}
+/* line 79, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #input_form input[type="submit"]:hover {
+  background-color: #6D7F91;
+  border-color: #6D7F91;
+}
+/* line 84, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #table_index {
+  padding: 20px;
+  margin-top: 40px;
+  border: 1px solid gray;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 93, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #purchase_title {
+  color: #545454;
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-left: 100px;
+  margin-top: 40px;
+}
+/* line 100, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #cart_frame {
+  /*width: 1200px;*/
+  margin-left: 65px;
+  margin-top: 50px;
+  float: left;
+  min-height: 400px;
+  margin-bottom: 50px;
+}
+/* line 108, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #cart_line_item {
+  border-bottom: 1px solid #b7b7b7;
+  /*width: 1200px;*/
+  margin: 0;
+  /*height: 220px;*/
+  float: left;
+}
+/* line 114, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #cart_line_item #slika {
+  padding-left: 5px;
+  padding-top: 5px;
+  /*width: 168px;*/
+  height: 136px;
+  float: left;
+}
+/* line 120, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #cart_line_item #slika img {
+  /*width: 100%;*/
+  height: 100%;
+}
+/* line 125, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #cart_line_item #description {
+  padding-top: 5px;
+  font-size: 1.13em;
+  /* Approximation due to font substitution */
+  font-weight: 600;
+  line-height: 1.667;
+  text-align: justify;
+  /*width: 450px;*/
+  /*height: 160px;*/
+  float: left;
+  color: #7d7d7d;
+  margin-left: 20px;
+}
+/* line 138, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users .buy_button {
+  width: 120px;
+  height: 30px;
+}
+/* line 142, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #price_details {
+  padding-top: 5px;
+  float: left;
+  padding-right: 40px;
+  /*   border-right: 1px solid #b7b7b7;;*/
+}
+@media (min-width: 768px) {
+  /* line 149, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+  .users #cart_line_item {
+    height: 450px;
+  }
+  /* line 152, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+  .users #price_details {
+    height: 450px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 158, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+  .users #price_details {
+    height: 240px;
+  }
+}
+/* line 162, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #order_details {
+  padding-top: 5px;
+  margin-left: 20px;
+  float: left;
+  text-align: left;
+  padding-bottom: 10px;
+  /*width: 130px;*/
+  margin-left: 40px;
+}
+/* line 171, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users #label {
+  float: left;
+  color: #7d7d7d;
+  font-size: 0.88em;
+  font-weight: 600;
+  line-height: 2.143;
+}
+/* line 178, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users .value {
+  width: 130px;
+  float: left;
+  color: #7d7d7d;
+  font-size: 1.13em;
+  font-weight: 600;
+  line-height: 1.667;
+  margin-bottom: 10px;
+}
+/* line 187, C:/Users/korisnik/Desktop/ebankarstvo/eBankarstvo/eBankarstvo/app/assets/stylesheets/users.css.scss */
+.users table {
+  margin-top: 20px;
+}
