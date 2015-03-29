@@ -1,7 +1,7 @@
 
 
-html, body , header, body.sessions,h1, body.users, body.incidents { 
-margin-left:auto;
+html, body , header, body.sessions, body.users, body.incidents, body.categories {
+    margin-left:auto;
 	margin-right:auto;
 
     max-width: 500px;
@@ -9,9 +9,28 @@ margin-left:auto;
     padding: 20px 20px 20px 20px;
     font: 12px Arial, Helvetica, sans-serif;
     color: #666;
+
+
      }
 
-#section_title, h3 {
+th {
+  margin-left:auto;
+  margin-right:auto;
+
+  max-width: 500px;
+  background: #D4AED8;
+  padding: 20px 20px 20px 20px;
+  font: 12px Arial, Helvetica, sans-serif;
+  color: #666;
+
+
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+#section_title, h3, h1 {
 		text-align: left;
 		background: #D4AED8;
 		color: #600B6A;
@@ -24,6 +43,10 @@ margin-left:auto;
 		padding-left: 0;
 		padding-right: 0;
 }
+
+
+
+
 
  #input_form {
       float: left;
