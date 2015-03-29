@@ -10,14 +10,13 @@
       </ul>
     </div>
   <% end %>
+  
+  
 
-  <div class="field">
-     <% if @edit %>
-       <h3>Known incident</h3>
-       <%= select_tag(:known_incident, options_for_select(Incident.dropdown_options, -1)) %><br><br>
-       <h3>New incident</h3>
-     <% end %>
+  <div id="section_title">
+  New incident
   </div>
+<div id="input_form" >
   <div class="field">
       <%= f.label :name %><br>
       <%= f.text_field :name %>
@@ -39,5 +38,15 @@
 
   <div class="actions">
     <%= f.submit %>
+  </div>
+  </div>
+
+  <div class="field">
+     <% if @edit %>
+       <h3>Known incident</h3>
+       <%= select_tag(:known_incident, options_for_select(Incident.dropdown_options, -1)) %><br><br>
+
+     <% end %>
+
   </div>
 <% end %>

@@ -1,8 +1,17 @@
 
 
-html, body , header, body.sessions,h1, body.users, body.incidents { background: #D4AED8; }
+html, body , header, body.sessions,h1, body.users, body.incidents { 
+margin-left:auto;
+	margin-right:auto;
 
-#section_title {
+    max-width: 500px;
+    background: #D4AED8;
+    padding: 20px 20px 20px 20px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+     }
+
+#section_title, h3 {
 		text-align: left;
 		background: #D4AED8;
 		color: #600B6A;
@@ -11,7 +20,6 @@ html, body , header, body.sessions,h1, body.users, body.incidents { background: 
 		font-weight: 800;
 		font-size: 22px;
 		margin-right: auto;
-		/*width: 430px*/;
 	/*	float: none */;
 		padding-left: 0;
 		padding-right: 0;
@@ -53,3 +61,4 @@ html, body , header, body.sessions,h1, body.users, body.incidents { background: 
         }
       }
   }
+
