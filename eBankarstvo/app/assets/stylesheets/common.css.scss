@@ -27,9 +27,13 @@ th {
 }
 
 table, th, td {
-  border: 3px solid white;
+
   border-collapse: collapse;
   background-color: white;
+}
+
+table {
+  border: 4px solid #600B6A;
 }
 
 th,td {
