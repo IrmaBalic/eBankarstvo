@@ -22,17 +22,19 @@ th {
   font: 14px Arial, Helvetica, sans-serif;
   color: darkmagenta;
 
-
 }
 
-table, th, td {
-
-  border-collapse: collapse;
-  background-color: white;
-}
 
 table {
-  border: 4px solid #600B6A;
+  background-color: white;
+  border-width: 3px;
+  border-color:  #600B6A;
+  border-style: solid;
+  width: 100%;
+  height: 35px;
+  padding: 5px;
+  border-radius: 5px;
+  border-top-left-radius: 10px;
 }
 
 th,td {
