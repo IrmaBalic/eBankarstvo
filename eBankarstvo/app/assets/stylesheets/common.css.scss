@@ -20,15 +20,23 @@ th {
   max-width: 500px;
   background: #D4AED8;
   padding: 20px 20px 20px 20px;
-  font: 12px Arial, Helvetica, sans-serif;
-  color: #666;
+  font: 14px Arial, Helvetica, sans-serif;
+  color: darkmagenta;
 
 
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 3px solid white;
+  border-collapse: collapse;
+  background-color: white;
 }
+
+th,td {
+  padding: 15px;
+}
+
+
 
 #section_title, h3, h1 {
 		text-align: left;
