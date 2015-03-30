@@ -1,6 +1,6 @@
 
 
-html, body , header, body.sessions, body.users, body.incidents, body.categories {
+html, body , header,body.roles, body.sessions, body.users, body.incidents, body.priorities, body.categories {
     margin-left:auto;
 	margin-right:auto;
 
@@ -97,4 +97,15 @@ th,td {
         }
       }
   }
+
+ #links {
+
+   float: left;
+   /*width: 350px;*/
+   margin-left: 0 px;
+   margin-top: 25px;
+   font-size: 1.13em;
+   line-height: 150%;
+     }
+
 
