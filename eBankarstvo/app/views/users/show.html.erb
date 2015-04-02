@@ -1,25 +1,24 @@
 <p id="notice"><%= notice %></p>
-<div id="table_index">
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-	
-		
-<p>
-  <strong>Surname:</strong>
-  <%= @user.surname %>
-</p>
-		
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-		
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+<h1>Pending requests</h1>
+<div class="container-fluid">
+<div class="row">
+<div id="input_form" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+  <% @incidents.each do |incident| %>
+    Solution for incident <b><%= incident.name %></b> is waiting to be approved.<br>
+    <em> Solution: <%=incident.solution%></em>
+    <div class="row" style="margin-bottom: 20px;">
+      <div class="small-form col-xs-1 col-sm-1 col-md-1 col-lg-1">
+        <%= form_tag confirm_incident_path(incident) do %>
+          <%= submit_tag("Yes") %>
+        <% end %>
+      </div>
+      <div class="small-form col-xs-1 col-sm-1 col-md-1 col-lg-1">
+        <%= form_tag decline_incident_path(incident) do %>
+          <%= submit_tag("No") %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>
+</div>

@@ -6,9 +6,9 @@ class IncidentsController < ApplicationController
   def index
      begin
         if params[:status]
-          @incidents = Incident.where("status = ?", params[:status])
+          @incidents = Incident.where("status = ?", params[:status]).order('created_at DESC')
         else
-          @incidents = Incident.all
+          @incidents = Incident.order('created_at DESC')
         end
       end
   end
@@ -35,11 +35,13 @@ class IncidentsController < ApplicationController
   # POST /incidents.json
   def create
     @category = Category.find_by_id(params[:category])
-    #@priority = Priority.find_by(name: params[:priority])
+    @user = User.find(session[:user_id])
+
     @incident = Incident.new(incident_params)
     @incident.category = @category
-    #@incident.priority = @priority
     @incident.status = "Active"
+    @incident.user = @user
+
     respond_to do |format|
       if @incident.save
         format.html { redirect_to @incident, notice: 'Incident was successfully created.' }
@@ -54,32 +56,55 @@ class IncidentsController < ApplicationController
   # PATCH/PUT /incidents/1
   # PATCH/PUT /incidents/1.json
   def update
-    if params[:known_incident] != "-1"
-      @known_incident = Incident.find_by_id(params[:known_incident])
-      @incident.name = @known_incident.name
-      @incident.description = @known_incident.description
-      @incident.priority = @known_incident.priority
-      @incident.category = @known_incident.category
-    else
       @category = Category.find_by_id(params[:category])
       @priority = Priority.find_by(name: params[:priority])
       @incident.category = @category
       @incident.priority = @priority
       @incident.name = params[:incident][:name]
       @incident.description = params[:incident][:description] 
-    end
-    @incident.status = "Closed"
-    respond_to do |format|
-      if @incident.save
-        format.html { redirect_to @incident, notice: 'Incident was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @incident.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @incident.save
+          format.html { redirect_to @incident, notice: 'Incident was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @incident.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
-
+  def solve
+    #Waiting to confirm closing
+    @incident = Incident.find(params[:id])
+    @incident.status = "Active"
+    @incident.confirmed = "Waiting"
+    if params[:known_incident] != "-1"
+      @known_incident = Incident.find_by_id(params[:known_incident])
+      @incident.solution = @known_incident.solution
+    else
+      @incident.solution = params[:incident][:solution]
+    end
+    @incident.save
+    redirect_to @incident
+  end
+  def solve_form
+    @incident = Incident.find(params[:id])
+  end
+  def confirm
+    @incident = Incident.find(params[:id])
+    @incident.confirmed = "Yes"
+    @incident.status = "Closed"
+    @incident.save
+    user = User.find(session[:user_id])
+    redirect_to user_url(user)
+  end
+  def decline
+    @incident = Incident.find(params[:id])
+    @incident.confirmed = "No"
+    @incident.status = "Active"
+    @incident.save
+    user = User.find(session[:user_id])
+    redirect_to user_url(user)
+  end
   # DELETE /incidents/1
   # DELETE /incidents/1.json
   def destroy

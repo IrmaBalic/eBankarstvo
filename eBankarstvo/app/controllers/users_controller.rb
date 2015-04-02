@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @incidents = @user.incidents.where("confirmed = ?", "Waiting")
   end
 
   # GET /users/new

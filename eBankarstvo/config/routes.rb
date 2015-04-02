@@ -3,11 +3,16 @@ EBankarstvo::Application.routes.draw do
     get  'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
-end
+  end
 
   resources :users
 
-  resources :incidents
+  resources :incidents do
+    post 'solve', on: :member
+    post 'confirm', on: :member
+    post 'decline', on: :member
+    get 'solve_form', on: :member
+  end
 
   resources :reported_incidents
 

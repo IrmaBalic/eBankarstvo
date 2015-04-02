@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324094136) do
+ActiveRecord::Schema.define(version: 20150401230911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,26 +31,20 @@ ActiveRecord::Schema.define(version: 20150324094136) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "confirmed",   default: "/"
+    t.string   "solution"
   end
 
   add_index "incidents", ["category_id"], name: "index_incidents_on_category_id", using: :btree
   add_index "incidents", ["priority_id"], name: "index_incidents_on_priority_id", using: :btree
+  add_index "incidents", ["user_id"], name: "index_incidents_on_user_id", using: :btree
 
   create_table "priorities", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "reported_incidents", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "reported_incidents", ["category_id"], name: "index_reported_incidents_on_category_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

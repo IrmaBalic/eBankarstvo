@@ -1,11 +1,2 @@
-
+<h1>New incident</h1>
 <%= render 'form' %>
-
-<br>
-<%= link_to 'Incident history', incidents_path %><br>
-<a href="/incidents?status=Active">Active incidents</a><br>
-<% if session[:user_id] %>
-   <%= button_to 'Logout', logout_path, method: :delete %>
-<% else %>
-   <%= link_to 'Login', login_path %><br>
-<% end %>

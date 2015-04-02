@@ -1,6 +1,7 @@
-<h1>Closing incident</h1>
+<h1>Edit incident</h1>
 <% @edit = true %>
 <%= render 'form' %>
-
-<%= link_to 'Show', @incident %> |
-<%= link_to 'Back', incidents_path %>
+<div class = "footer-actions">
+	<%= link_to 'Show', @incident %> |
+	<%= link_to 'Back', incidents_path %>
+</div>

@@ -1,0 +1,21 @@
+<h1>Solve incident: <%= @incident.name %> </h1>
+
+<%= form_tag solve_incident_path(@incident) do %>
+	<div id="input_form" class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	  <div class="field">
+	     <%= label :known_incident, "Is there a known way of solving this incident? If yes, choose one of the following?" %><br>
+	     <%= select_tag(:known_incident, options_for_select(Incident.dropdown_options, -1)) %>
+	  </div>
+	  <div class="field">
+	    <%= label :solution, "If the answer on the last question was no, please explain way of solving this incident." %><br>
+	    <%= text_area :incident, :solution, :rows => 6 %>
+	  </div>
+	  <div class="actions">
+	    <%= submit_tag("Solve") %>
+	  </div>
+	</div>
+<% end %>
+<div class = "footer-actions">
+	<%= link_to 'Show', @incident %> |
+	<%= link_to 'Back', incidents_path %>
+</div>
