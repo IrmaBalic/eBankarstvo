@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401230911) do
+ActiveRecord::Schema.define(version: 20150420142712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,23 @@ ActiveRecord::Schema.define(version: 20150401230911) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "changes", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "category_id"
+    t.integer  "priority_id"
+    t.integer  "user_id"
+    t.string   "status"
+    t.string   "confirmed"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "changes", ["category_id"], name: "index_changes_on_category_id", using: :btree
+  add_index "changes", ["priority_id"], name: "index_changes_on_priority_id", using: :btree
+  add_index "changes", ["user_id"], name: "index_changes_on_user_id", using: :btree
 
   create_table "incidents", force: true do |t|
     t.string   "name"

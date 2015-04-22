@@ -31,6 +31,14 @@
             <li><%= link_to 'Add incident', new_incident_path %></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Changes <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/changes?status=Active">Active changes</a></li>
+            <li><%= link_to 'Changes history', changes_path %></li>
+            <li><%= link_to 'Add change', new_change_path %></li>
+          </ul>
+        </li>
     <% if session[:user_id] %>
       <% if session[:role] == "Guest" %>
         <li><%= link_to 'Notifications', user_path(@user) %></li>
