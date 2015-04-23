@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div id="input_form" class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -29,7 +29,11 @@
           <%= select_tag(:priority, options_for_select(Priority.dropdown_options, :selected => Priority.selected(@priority))) %>
         </div>
         <%end%>
-  <div class="actions">
-    <%= f.submit %>
+   <div class="actions">
+  <% if @edit %>
+    <%= submit_tag("Update") %>
+  <% else %>
+    <%= submit_tag("Create") %>
+  <% end %>
   </div>
 <% end %>

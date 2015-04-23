@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<div id="input_form" class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<p>
+  <strong>Name:</strong>
+  <%= @change.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @change.description %>
+</p>
+  <p><strong>Category:</strong>
+
+<% if @change.category %>
+  
+  <%= @change.category.name %>
+  
+<% else %>
+   / 
+<% end %></p>
+<p>
+  <strong>Priority:</strong>
+
+<% if @change.priority %>
+  <%= @change.priority.name %>
+<% else %>
+  /
+<% end %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @change.user.name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @change.status %>
+</p>
+
+<p>
+  <strong>Confirmed:</strong>
+  <%= @change.confirmed %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @change.comment %>
+</p>
+
+</div>
+<div class = "footer-actions">
+  <%= link_to 'Edit', edit_change_path(@change) %> |
+  <%= link_to 'Back', changes_path %>
+</div>
