@@ -1,4 +1,6 @@
 EBankarstvo::Application.routes.draw do
+  resources :changes
+
   controller :sessions do
     get  'login' => :new
     post 'login' => :create
