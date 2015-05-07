@@ -1,5 +1,15 @@
 EBankarstvo::Application.routes.draw do
-  resources :changes
+  resources :c_types
+
+  resources :change_types
+
+  resources :changes do
+    post 'solve', on: :member
+    post 'confirm', on: :member
+    post 'decline', on: :member
+    get 'solve_form', on: :member
+  end
+
 
   controller :sessions do
     get  'login' => :new

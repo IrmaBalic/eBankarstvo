@@ -1,0 +1,27 @@
+<h1>Listing c_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @c_types.each do |c_type| %>
+      <tr>
+        <td><%= c_type.name %></td>
+        <td><%= link_to 'Show', c_type %></td>
+        <td><%= link_to 'Edit', edit_c_type_path(c_type) %></td>
+        <td><%= link_to 'Destroy', c_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New C type', new_c_type_path %>

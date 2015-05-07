@@ -5,10 +5,18 @@ class ChangesController < ApplicationController
   # GET /changes.json
   def index
     begin
-      if params[:status]
-        @changes = Change.where("status = ?", params[:status]).order('created_at DESC')
+      if session[:role] == "EmergencyAB"
+        @changes = Change.where("c_type_id = ?", "2").order('created_at DESC')
+      elsif session[:role] == "BigAB"
+        @changes = Change.where("c_type_id = ?", "1").order('created_at DESC')
+      elsif session[:role] == "StandardAB"
+        @changes = Change.where("c_type_id = ?", "3").order('created_at DESC')
       else
-        @changes = Change.order('created_at DESC')
+        if params[:status]
+          @changes = Change.where("status = ?", params[:status]).order('created_at DESC')
+        else
+          @changes = Change.order('created_at DESC')
+        end        
       end
     end
   end
@@ -25,11 +33,12 @@ class ChangesController < ApplicationController
 
   # GET /changes/1/edit
   def edit
-
     if @change.category
       @category = @change.category.id
     end
-   
+    if @change.c_type
+      @ctype = @change.c_type.id
+    end
     if @change.priority
       @priority = @change.priority.id
     end
@@ -58,8 +67,10 @@ class ChangesController < ApplicationController
   def update
 
     @category = Category.find_by_id(params[:category])
+    @type = CType.find_by_id(params[:c_type])
     @priority = Priority.find_by(name: params[:priority])
     @change.category = @category
+    @change.c_type = @type
     @change.priority = @priority
     @change.name = params[:change][:name]
     @change.description = params[:change][:description]
@@ -74,7 +85,34 @@ class ChangesController < ApplicationController
       end
     end
   end
-
+  def solve
+    #Waiting to confirm closing
+    @change = Change.find(params[:id])
+    @change.status = "Active"
+    @change.confirmed = "Waiting"
+    @change.comment = params[:change][:comment]
+    @change.save
+    redirect_to @change
+  end
+  def solve_form
+    @change = Change.find(params[:id])
+  end
+  def confirm
+    @change = Change.find(params[:id])
+    @change.confirmed = "Yes"
+    @change.status = "Closed"
+    @change.save
+    user = User.find(session[:user_id])
+    redirect_to user_url(user)
+  end
+  def decline
+    @change = Change.find(params[:id])
+    @change.confirmed = "No"
+    @change.status = "Active"
+    @change.save
+    user = User.find(session[:user_id])
+    redirect_to user_url(user)
+  end
   # DELETE /changes/1
   # DELETE /changes/1.json
   def destroy
@@ -93,6 +131,6 @@ class ChangesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def change_params
-      params.require(:change).permit(:name, :description, :category_id, :priority_id, :user_id, :status, :confirmed, :comment)
+      params.require(:change).permit(:name, :description, :category_id, :priority_id, :user_id, :status, :confirmed, :comment, :c_type_id)
     end
 end

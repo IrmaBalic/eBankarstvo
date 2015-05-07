@@ -20,15 +20,19 @@
     <%= f.text_area :description %>
   </div>
     <% if @edit %>
-        <div class="field">
-      <%= label :category_id, "Category" %><br>
-      <%= select_tag(:category, options_for_select(Category.dropdown_options, :selected => Category.selected(@category))) %>
-    </div>
+      <div class="field">
+        <%= label :category_id, "Category" %><br>
+        <%= select_tag(:category, options_for_select(Category.dropdown_options, :selected => Category.selected(@category))) %>
+      </div>
+      <div class="field">
+        <%= label :c_type_id, "Type" %><br>
+        <%= select_tag(:c_type, options_for_select(CType.dropdown_options, :selected => CType.selected(@ctype))) %>
+      </div>
         <div class="field">
           <%= label :priority, "Priority" %><br>
           <%= select_tag(:priority, options_for_select(Priority.dropdown_options, :selected => Priority.selected(@priority))) %>
         </div>
-        <%end%>
+    <%end%>
    <div class="actions">
   <% if @edit %>
     <%= submit_tag("Update") %>

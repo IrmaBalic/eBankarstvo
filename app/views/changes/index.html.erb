@@ -8,13 +8,14 @@
       <th>Name</th>
       <th>Description</th>
       <th>Status</th>
-      <% if session[:role] == "Manager" %>
+      <% if session[:role] != "Guest" %>
         <th>Category</th>
         <th>Priority</th>
+        <th>Type</th>
         <th>User</th>
         <th>Confirmed</th>
         <th>Comment</th>
-        <th colspan="3"> Actions </th>
+        <th colspan="2"> Actions </th>
       <% end %>
     </tr>
   </thead>
@@ -25,7 +26,7 @@
         <td><%= change.name %></td>
         <td><%= change.description %></td>
         <td><%= change.status %></td>
-        <% if session[:role] == "Manager" %>
+        <% if session[:role] != "Guest" %>
           <% if change.category %>
             <td><%= change.category.name %></td>
           <% else %>
@@ -36,12 +37,20 @@
           <% else %>
             <td> - </td>
           <% end %>
+          <% if change.c_type %>
+            <td><%= change.c_type.name %></td>
+          <% else %>
+            <td> - </td>
+          <% end %>
           <td><%= change.user.name %></td>
           <td><%= change.confirmed %></td>
           <td><%= change.comment %></td>
           <td><%= link_to 'Show', change %></td>
+        <% end %>
+        <% if session[:role] != "Manager" and session[:role] != "Guest" %>
+          <td><%= link_to 'Close', solve_form_change_path(change) %></td>
+        <% else %>
           <td><%= link_to 'Edit', edit_change_path(change) %></td>
-          <td><%= link_to 'Solve', change %></td>
         <% end %>
       </tr>
     <% end %>
