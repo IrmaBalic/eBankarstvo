@@ -42,6 +42,34 @@ class IncidentsController < ApplicationController
     @incident.status = "Active"
     @incident.user = @user
 
+
+    @brojac = 0
+    Incident.all.each do |i|
+      if (i.category == @incident.category && i.status == "Active")
+        @brojac = @brojac + 1
+      end
+    end
+
+    if @brojac > 4
+      @problem = Problem.new
+      @problem.name = @incident.category.name
+      @problem.description = ''
+	  @problem.status = "Active"
+      @problem.save
+	  @incident.status = "Closed"
+    end
+	
+	 if @brojac > 4
+	  Incident.all.each do |i|
+      if i.category == @incident.category
+        i.status = "Closed"
+		i.save
+      end
+    end
+	end
+	 
+	
+	 
     respond_to do |format|
       if @incident.save
         format.html { redirect_to @incident, notice: 'Incident was successfully created.' }
@@ -51,6 +79,10 @@ class IncidentsController < ApplicationController
         format.json { render json: @incident.errors, status: :unprocessable_entity }
       end
     end
+
+
+
+
   end
 
   # PATCH/PUT /incidents/1

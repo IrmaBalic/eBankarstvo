@@ -1,0 +1,50 @@
+<h1>Problems</h1>
+<div class="container">
+<div class="table-responsive"> 
+  <table class="table table-striped table-bordered table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Category</th>
+      <% if session[:role] == "PrManager" %>
+        <th>Priority</th>
+      <% end %>
+      <th>Status</th>
+      <% if session[:role] == "PrManager" %>
+        <th>User</th>
+        <th>Approved</th>
+        <th colspan="3"> Actions </th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @problems.each do |problem| %>
+      <tr>
+        <td><%= problem.name %></td>
+        <td><%= problem.description %></td>
+        <td>< / ></td>
+        <% if session[:role] == "PrManager" %>
+          <% if problem.priority %>
+            <td><%= problem.priority.name %></td>
+          <% else %>
+            <td> - </td>
+          <% end %>
+        <% end %>
+        <td><%= problem.status %></td>
+        <% if session[:role] == "PrManager" %>
+          <td>< / ></td>
+          <td><%= problem.confirmed %></td>
+          <td><%= link_to 'Show', problem %></td>
+          <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
+		  <td><%= link_to 'Solve', solve_form_problem_path(problem) %></td>
+         
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+</div>

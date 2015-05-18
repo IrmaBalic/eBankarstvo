@@ -1,0 +1,18 @@
+<h1>Solve problem: </h1>
+
+<%= form_tag solve_problem_path(@problem) do %>
+	<div id="input_form" class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	 
+	  <div class="field">
+	    <%= label :solution, "How to solve a problem?" %><br>
+	    <%= text_area :problem, :solution, :rows => 6 %>
+	  </div>
+	  <div class="actions">
+	    <%= submit_tag("Solve") %>
+	  </div>
+	</div>
+<% end %>
+<div class = "footer-actions">
+	<%= link_to 'Show', @problem %> |
+	<%= link_to 'Back', problems_path %>
+</div>
