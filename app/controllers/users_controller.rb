@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @incidents = @user.incidents.where("confirmed = ?", "Waiting")
+    @changes = @user.changes.where("confirmed = ?", "Waiting")
   end
 
   # GET /users/new
@@ -20,13 +21,16 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if @user.role
+      @role = @user.role.id
+    end
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user.role = Role.last
+    @user.role = Role.find_by_id(params[:role])
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }

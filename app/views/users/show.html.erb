@@ -20,5 +20,24 @@
     </div>
   <% end %>
 </div>
+<br>
+<div id="input_form" class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+  <% @changes.each do |change| %>
+    Solution for change <b><%= change.name %></b> is waiting to be approved.<br>
+    <em> Comment: <%=change.comment%></em>
+    <div class="row" style="margin-bottom: 20px;">
+      <div class="small-form col-xs-1 col-sm-1 col-md-1 col-lg-1">
+        <%= form_tag confirm_change_path(change) do %>
+          <%= submit_tag("Yes") %>
+        <% end %>
+      </div>
+      <div class="small-form col-xs-1 col-sm-1 col-md-1 col-lg-1">
+        <%= form_tag decline_change_path(change) do %>
+          <%= submit_tag("No") %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
 </div>
 </div>

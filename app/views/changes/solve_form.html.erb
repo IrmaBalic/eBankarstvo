@@ -1,0 +1,17 @@
+<h1>Close change: <%= @change.name %> </h1>
+
+<%= form_tag solve_change_path(@change) do %>
+	<div id="input_form" class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	  <div class="field">
+	    <%= label :comment, "Comment:" %><br>
+	    <%= text_area :change, :comment, :rows => 6 %>
+	  </div>
+	  <div class="actions">
+	    <%= submit_tag("Close") %>
+	  </div>
+	</div>
+<% end %>
+<div class = "footer-actions">
+	<%= link_to 'Show', @change %> |
+	<%= link_to 'Back', changes_path %>
+</div>

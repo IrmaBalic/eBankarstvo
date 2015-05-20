@@ -32,6 +32,10 @@
     <%= f.label :password_confirmation %><br>
     <%= f.text_field :password_confirmation %>
   </div>
+  <div class="field">
+        <%= label :role_id, "Role" %><br>
+        <%= select_tag(:role, options_for_select(Role.dropdown_options, :selected => Role.selected(@role))) %>
+      </div>
   <div class="actions">
     <%= f.submit %>
   </div>

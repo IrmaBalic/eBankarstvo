@@ -28,6 +28,15 @@
 <% end %>
 </p>
 <p>
+  <strong>Type:</strong>
+
+<% if @change.c_type %>
+  <%= @change.c_type.name %>
+<% else %>
+  /
+<% end %>
+</p>
+<p>
   <strong>User:</strong>
   <%= @change.user.name %>
 </p>
