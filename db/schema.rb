@@ -11,14 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150518130907) do
+=======
+ActiveRecord::Schema.define(version: 20150506225935) do
+>>>>>>> origin/master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "c_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "categories", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "change_types", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,8 +49,10 @@ ActiveRecord::Schema.define(version: 20150518130907) do
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "c_type_id"
   end
 
+  add_index "changes", ["c_type_id"], name: "index_changes_on_c_type_id", using: :btree
   add_index "changes", ["category_id"], name: "index_changes_on_category_id", using: :btree
   add_index "changes", ["priority_id"], name: "index_changes_on_priority_id", using: :btree
   add_index "changes", ["user_id"], name: "index_changes_on_user_id", using: :btree

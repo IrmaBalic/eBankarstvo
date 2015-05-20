@@ -1,13 +1,24 @@
 EBankarstvo::Application.routes.draw do
+<<<<<<< HEAD
 
   resources :problems do
+=======
+  resources :c_types
+
+  resources :change_types
+
+  resources :changes do
+>>>>>>> origin/master
     post 'solve', on: :member
     post 'confirm', on: :member
     post 'decline', on: :member
     get 'solve_form', on: :member
   end
 
+<<<<<<< HEAD
   resources :changes
+=======
+>>>>>>> origin/master
 
   controller :sessions do
     get  'login' => :new
